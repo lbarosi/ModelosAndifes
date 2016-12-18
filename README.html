@@ -122,11 +122,296 @@ $(document).ready(function () {
 </div>
 
 
-<div id="o-que-voce-encontra-aqui" class="section level1">
-<h1>O que você encontra aqui?</h1>
+<div id="introducao" class="section level1">
+<h1>Introdução</h1>
+<p>A secretaria de Educação SUperior do MEC adota uma Matriz de Alocação de Recursos Orçamentários para fazer jus às despesas de custeio das Instituições Federais de Ensino Superior. Essa matriz traz em seu contexto a necessidade de diversos indicadores calculados sobre uma base de dados anuais de caráter acadêmico.</p>
+<p>Em 1999 o MEC desemvolveu e implementou um movo modelo de alocação de recursos, adaptando o modelo de financiamento inglês (HEFCE), onde uma de suas características principais era o conceito de produtividade acadêmica.</p>
+<p>Atendendo a críticas quan ao modelo que colocavam as IFES em conpetição excessiva por recursos, a SESu/MEV convidou a ANDIFES e o FORPLAD, em 2002, para pensarem conjuntamente uma proposta com as seguintes características:</p>
+<ol style="list-style-type: decimal">
+<li>Reconhecimento da heterogeneidade do Sistema IFES;</li>
+<li>Parâmetros indutores para a diminuição da evasão e retenção;</li>
+<li>Incentivo a criação de cursos noturnos;</li>
+<li>Previsão de expansão do sistema;</li>
+<li>Utilização de indicadores auditáveis e facilmente verificáveis;</li>
+<li>Equalização de distorções no sistema.</li>
+</ol>
+<p>O principal indicador do modelo é o ** aluno equivalente (NFTE) **, composto de quatro indicadores parciais, conforme os diferentes níveis educacionais (Graduação, Mestrado stricto sensu, Doutorado e Residência Médica).</p>
+<p>Os dados são obtidos hoje a partir da coleta do Censo da Educação Superior e dos dados do COLETA CAPES.</p>
+<div id="o-modelo-andifes" class="section level2">
+<h2>O Modelo Andifes</h2>
+<p>Existem algumas diferenças metodológicas para o cálculo do aluno equivalente (que devem ser observadas na leitura dos documentos nesse repositório, na pasta ANDIFES). Para cursos em regime de graduação em regime regular temos:</p>
+<p><span class="math display">\[ {NFTe}^i_{(G)} = \left \{ \left[N_{Di} \times D  \times (1 + R) \right ] + \left [ \left( \frac{N_i - N_{Di}}{4} \times D \right) \right ] \right \} \times BT \times BFS  \times PG \]</span></p>
+<p>Onde</p>
+<table style="width:42%;">
+<colgroup>
+<col width="25%"></col>
+<col width="16%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\((NFTe)^i_{(G)}\)</span></td>
+<td align="left">Número de alunos equivalestes (graduação) para o i-ésimo curso</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(N_{Di}\)</span></td>
+<td align="left">Número de Diplomados;</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(D\)</span></td>
+<td align="left">Duração Padrão do Curso;</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(R\)</span></td>
+<td align="left">Fator de Retenção;</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(N_{i}\)</span></td>
+<td align="left">Número de Ingressantes;</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(BT\)</span></td>
+<td align="left">Bônus por turno Noturno (7%);</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(BFS\)</span></td>
+<td align="left">Bônus por curso fora de sede (5%);</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(PG\)</span></td>
+<td align="left">Peso do Grupo</td>
+</tr>
+</tbody>
+</table>
+<p>Na expressão acima o Peso do Grupo, o Fator de Retenção e a Duração Padrão são variáveis de modelo, que buscam representar os diferentes custos de cada curso, ou seja, são as propriedades dos cursos individuais.</p>
+<p>Os valores atuais são baseados em estudo do FORGRAD na década de 80 e nas variáveis do modelo inglês de 1997.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">GRUPO</th>
+<th align="left">PG</th>
+<th align="left">ÁREA</th>
+<th align="left">DESCRIÇÃO DA ÁREA</th>
+<th align="left">R</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">4,5</td>
+<td align="left">CS1</td>
+<td align="left">Medicina</td>
+<td align="left">0,0650</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">4,5</td>
+<td align="left">CS2</td>
+<td align="left">Veterinária, Odontologia, Zootecnia</td>
+<td align="left">0,0650</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">CET</td>
+<td align="left">Ciências Exatas e da Terra</td>
+<td align="left">0,1325</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">CB</td>
+<td align="left">Ciências Biológicas</td>
+<td align="left">0,1250</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">ENG</td>
+<td align="left">Engenharias</td>
+<td align="left">0,0820</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">TEC</td>
+<td align="left">Tecnólogos</td>
+<td align="left">0,0820</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">CS3</td>
+<td align="left">Nutrição, Farmácia</td>
+<td align="left">0,0660</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A2</td>
+<td align="left">2,0</td>
+<td align="left">CA</td>
+<td align="left">Ciências Agrárias</td>
+<td align="left">0,0500</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">CE2</td>
+<td align="left">Ciências Exatas - Computação</td>
+<td align="left">0,1325</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">CE1</td>
+<td align="left">Ciências Exatas - Matemática e Estatística</td>
+<td align="left">0,1325</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">CSC</td>
+<td align="left">Arquitetura e Urbanismo</td>
+<td align="left">0,1200</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">A</td>
+<td align="left">Artes</td>
+<td align="left">0,1150</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">M</td>
+<td align="left">Música</td>
+<td align="left">0,1150</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A3</td>
+<td align="left">1,5</td>
+<td align="left">CS4</td>
+<td align="left">Enfermagem, Fisiotrapia, Fonoaudiologia e Educação Física</td>
+<td align="left">0,0660</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">CSA</td>
+<td align="left">Ciências Sociais Aplicadas</td>
+<td align="left">0,1200</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">CSB</td>
+<td align="left">Direito</td>
+<td align="left">0,1200</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">LL</td>
+<td align="left">Linguística e Letras</td>
+<td align="left">0,1150</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">CH</td>
+<td align="left">Ciências Humanaas</td>
+<td align="left">0,1000</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">CH1</td>
+<td align="left">Psicologia</td>
+<td align="left">0,1100</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A4</td>
+<td align="left">1,0</td>
+<td align="left">CH2</td>
+<td align="left">Formação de Professor</td>
+<td align="left">0,1100</td>
+<td align="left">4</td>
+</tr>
+</tbody>
+</table>
+<p>A Comissão de Modelos ForPLAD/ANDIFES vem trabalhando nesses descritores para que possam melhor descrever a realidade brasileira.</p>
+</div>
+</div>
+<div id="material-de-referencia" class="section level1">
+<h1>Material de Referência</h1>
+<ol style="list-style-type: decimal">
+<li>Arquivos ANDIFES</li>
+</ol>
 <ul>
-<li>Material de Referência</li>
+<li>Matriz OCC 2016</li>
+<li>Modelo Inglês 98</li>
+<li>Relatório SESu coleta de dados 2006</li>
 </ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Arquivos HEFCE</li>
+</ol>
+<ul>
+<li>Informações sobre o modelo Inglês atual</li>
+<li>Metodologia TRAC para análise de custos</li>
+<li>White papers</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Arquivos INEP</li>
+</ol>
+<ul>
+<li>Censo 2010 - 2015 (Cursos e IES apenas)</li>
+<li>Tabela OCDE 2009 de códigos de cursos</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Arquivos MPOG</li>
+</ol>
+<ul>
+<li>PLOA 2010 - 2016</li>
+<li>APlicações diretas do Governo Federal 2010 - 2011</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Arquivos DADOS_ABERTOS</li>
+</ol>
+</div>
+<div id="r-scripts" class="section level1">
+<h1>R Scripts</h1>
+</div>
+<div id="to-do" class="section level1">
+<h1>TO-DO</h1>
+</div>
+<div id="responsabilidade" class="section level1">
+<h1>Responsabilidade</h1>
+<p>Esse projeto é mantido por Luciano Barosi de Lemos</p>
 </div>
 
 
