@@ -1,0 +1,15 @@
+base
+ggplot2
+stringi
+stringr
+readxl
+rJava
+xlsxjars
+xlsx
+xtable
+dplyr
+plyr
+magrittr
+reshape2
+ggthemes
+dgof

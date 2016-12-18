@@ -1,0 +1,30 @@
+---
+title: "Peso do Grupo"
+author: "Forplad/ANDIFES"
+date: "17 de dezembro de 2016"
+output: html_document
+---
+
+# Introdução
+
+```{r warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+source("baseModelos.R")
+```
+
+# Proposta
+
+
+# Análise
+
+```{r graf1, warning=FALSE, cache=TRUE, echo=FALSE, fig.width= 8, fig.align='center'  }
+cursosOCDE
+```
+
+```{r graf2, warning=FALSE, cache=TRUE, echo=FALSE, fig.width= 8, fig.align='center'  }
+matriculadosOCDE
+```
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+p
+```
+
